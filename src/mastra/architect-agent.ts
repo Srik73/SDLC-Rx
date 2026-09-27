@@ -10,7 +10,8 @@ export const architectAgent = new Agent({
   model: chatModel,
   defaultOptions: {
     modelSettings: { maxOutputTokens: 200 },
-    providerOptions: { lmStudio: { reasoningEffort: 'none', enable_thinking: false } },
+    // providerOptions: { lmStudio: { reasoningEffort: 'none', enable_thinking: false } },
+    providerOptions: { lmStudio: { reasoning_format: 'hidden' } },
   },
   channels: telegramChannels,
 });

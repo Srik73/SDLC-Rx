@@ -3,7 +3,7 @@ import { architectWorkspace } from './workspace';
 
 const SKIP_IDS = /(?:clarify|specify|analyze)-command/i;
 const MAX_HIT_CHARS = 1200;
-const TOP_K = 5;
+const TOP_K = 3;
 const SDLC_QUERY = 'secure software development lifecycle SSDLC application security lifecycle threat modelling VA PT iterative systems engineering';
 
 const partText = (part: unknown): string => {

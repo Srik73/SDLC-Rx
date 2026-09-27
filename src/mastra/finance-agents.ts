@@ -6,7 +6,8 @@ import { architectWorkspace } from './workspace';
 
 const options = {
   modelSettings: { maxOutputTokens: 3500 },
-  providerOptions: { lmStudio: { reasoningEffort: 'none', enable_thinking: false } },
+  // providerOptions: { lmStudio: { reasoningEffort: 'none', enable_thinking: false } },
+  providerOptions: { lmStudio: { reasoning_format: 'hidden' } },
 } as const;
 
 export const requirementsAgent = new Agent({

@@ -31,6 +31,8 @@ const selectSdlc = createStep({
     document: z.string(),
   }),
   execute: async ({ inputData }) => {
+    // Pause to avoid Groq free-tier rate limit collision with the Requirements Agent call
+    await new Promise((resolve) => setTimeout(resolve, 65000));
     const result = await sdlcSelectionAgent.generate(
       `Select a suitable SDLC for this specification.\n\n${inputData.requirements}`,
     );
