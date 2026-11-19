@@ -1,0 +1,28 @@
+SOURCE: 45 CFR 170.315 — ONC certification criteria for Health IT
+SECTION: (e) Patient engagement
+RETRIEVED FROM: https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170/subpart-C/section-170.315
+RETRIEVED: 2026-09-27
+
+IMPORTANT CURRENT-STATUS NOTE: Paragraph (e)(2), which in the 2015 Edition certification program was titled "Secure messaging" and covered patient-provider portal messaging, shows as [Reserved] in the current (2026) eCFR text — i.e., it has been removed/retired as an active ONC certification criterion. Older sources (vendor pages, blog posts referencing "2015 Edition" certification) describing 170.315(e)(2) as a current requirement are describing a retired provision. Patient portal messaging functionality today is primarily governed by the general privacy/security criteria in paragraph (d) of this section (see companion file onc-170315-privacy-security-2026.txt) plus the HIPAA Security Rule, not by a dedicated ONC messaging criterion.
+
+(e) Patient engagement —
+
+(1) View, download, and transmit to 3rd party.
+(i) Patients (and their authorized representatives) must be able to use internet-based technology to view, download, and transmit their health information to a 3rd party, consistent with the standard adopted in § 170.204(a)(1) or § 170.204(a)(2). This includes:
+  (A) View — a defined minimum data set (problem list, medication list, allergies, lab results, care plan data, provider name/contact info, admission/discharge info where applicable, diagnostic image reports).
+  (B) Download — an ambulatory or inpatient summary in human-readable format and a structured (CCD template) format.
+  (C) Transmit to third party — via (i) email to any email address and (ii) an encrypted method of electronic transmission.
+  (D) Timeframe selection — patients must be able to select data by specific date or date range for viewing, downloading, or transmitting.
+
+(ii) Activity history log. When any view/download/transmit action occurs, the following must be recorded and accessible to the patient: the action(s) taken; date and time; the user who took the action; and, where applicable, the addressee.
+
+(iii) Request for restrictions. Patients (and authorized representatives) must be able to use an internet-based method to request a restriction on any data. (Conformance required by 2026-01-01.)
+
+(2) [Reserved] — see status note above regarding former "Secure messaging" criterion.
+
+(3) Patient health information capture. Enable a user to:
+(i) Identify, record, and access information directly and electronically shared by a patient (or authorized representative).
+(ii) Reference and link to patient health information documents.
+
+---
+Note on appointment scheduling: no dedicated ONC certification criterion specifically governs appointment-scheduling functionality as of this eCFR text. Scheduling features are typically addressed indirectly through general privacy/security criteria (paragraph (d)) and the API-access criteria (paragraph (g), particularly (g)(10) Standardized API for patient and population services), rather than a scheduling-specific rule. This corresponds to the intentionally lighter regulatory tier for the Appointment Scheduling scenario relative to e-prescribing or CDS alerting.

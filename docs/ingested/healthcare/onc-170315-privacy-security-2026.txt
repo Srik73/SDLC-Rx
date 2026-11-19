@@ -1,0 +1,39 @@
+SOURCE: 45 CFR 170.315 — ONC certification criteria for Health IT
+SECTION: (d) Privacy and security
+RETRIEVED FROM: https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170/subpart-C/section-170.315
+RETRIEVED: 2026-09-27
+
+(d) Privacy and security —
+
+(1) Authentication, access control, and authorization.
+(i) Verify against a unique identifier(s) (e.g., username or number) that a user seeking access to electronic health information is the one claimed; and
+(ii) Establish the type of access to electronic health information a user is permitted based on the unique identifier(s), and the actions the user is permitted to perform.
+
+(2) Auditable events and tamper-resistance.
+(i) Record actions related to electronic health information (per § 170.210(e)(1)); record audit log status (enabled/disabled) unless it cannot be disabled by any user; record encryption status of ePHI locally stored on end-user devices, unless the technology prevents local storage entirely.
+(ii) Default setting: technology must be set by default to perform these capabilities.
+(iii) Ability to disable the audit log, where permitted, must be restricted to a limited set of users.
+(iv) Audit log protection: recorded actions/statuses must not be capable of being changed, overwritten, or deleted by the technology.
+(v) Detection: technology must be able to detect whether the audit log has been altered.
+
+(3) Audit report(s). Enable a user to create an audit report for a specific time period and sort entries in the audit log.
+
+(4) Amendments. Enable a user to select the record affected by a patient's request for amendment. For an accepted amendment, append the amendment (or a link to it) to the affected record. For a denied amendment, append the request and denial (or a link) to the affected record.
+
+(5) Automatic access time-out. Automatically stop user access to health information after a predetermined period of inactivity; require re-authentication to resume access.
+
+(6) Emergency access. Permit an identified set of users to access electronic health information during an emergency.
+
+(7) End-user device encryption. Technology that locally stores ePHI on end-user devices must encrypt that information after use stops (per § 170.210(a)(2)), OR must be designed to prevent local storage entirely. Default setting must perform this capability; ability to change the configuration restricted to a limited set of identified users.
+
+(8) Integrity. Create a message digest (per § 170.210(c)(2)) and verify upon receipt of electronically exchanged health information that it has not been altered.
+
+(9) Trusted connection. Establish a trusted connection via message-level encryption/integrity protection OR transport-level trusted connection (both per § 170.210(a)(2) and (c)(2)).
+
+(10) Auditing actions on health information. By default, record actions related to ePHI (per § 170.210(e)(1)); if auditing can be disabled, that ability must be restricted to a limited set of users; recorded actions must not be capable of being changed/overwritten/deleted; technology must be able to detect audit log alteration.
+
+(11) Accounting of disclosures. Record disclosures made for treatment, payment, and health care operations (per § 170.210(d)).
+
+(12) Encrypt authentication credentials. Health IT developers must attest whether the Health IT Module encrypts stored authentication credentials (per § 170.210(a)(2)).
+
+(13) Multi-factor authentication. Health IT developers must attest whether the Health IT Module supports authentication through multiple elements using industry-recognized standards, and describe supported use cases if so.

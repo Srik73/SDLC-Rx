@@ -13,7 +13,7 @@ const options = {
 export const requirementsAgent = new Agent({
   id: 'requirements-agent',
   name: 'Requirements Agent',
-  description: '(i) Identify and list software requirements for a finance scenario.',
+  description: '(i) Identify and list software requirements for a healthcare scenario.',
   instructions: REQUIREMENTS_PROMPT,
   model: chatModel,
   defaultOptions: options,

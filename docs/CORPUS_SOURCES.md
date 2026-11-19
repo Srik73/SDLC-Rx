@@ -40,3 +40,15 @@ The runtime skill is `skills/finance-requirements-document/SKILL.md`. It points 
 - `meta-prompting.com` was not ingested because the site could not be reliably retrieved or verified during this run. The published MIT research repository and HubSpot-hosted webinar are used instead.
 - FATF material was identified but its publisher blocked automated retrieval (HTTP 403); it was not copied or represented as ingested.
 - Publisher documents are evidence, not automatic proof of legal applicability. Jurisdiction, entity scope, amendments, and legal interpretation require an authorised reviewer.
+
+## Healthcare corpus
+
+| File | Title | Source URL | Retrieved | Notes |
+|---|---|---|---|---|
+| `docs/ingested/healthcare/onc-170315-cds-2026.txt` | 45 CFR 170.315(a)(9) — Clinical decision support | https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170/subpart-C/section-170.315 | 2026-09-27 | Certification adoption for this paragraph expires 2025-01-01; superseded by (b)(11), see below. Kept for historical/legacy-system context. |
+| `docs/ingested/healthcare/onc-170315-decision-support-interventions-2026.txt` | 45 CFR 170.315(b)(11) — Decision support interventions | https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170/subpart-C/section-170.315 | 2026-09-27 | Current, active successor criterion to (a)(9). Use for current CDS alerting citations. |
+| `docs/ingested/healthcare/onc-170315-patient-engagement-2026.txt` | 45 CFR 170.315(e) — Patient engagement | https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170/subpart-C/section-170.315 | 2026-09-27 | (e)(2) "Secure messaging" is [Reserved]/retired in current text — flagged in file. |
+| `docs/ingested/healthcare/onc-170315-privacy-security-2026.txt` | 45 CFR 170.315(d) — Privacy and security | https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170/subpart-C/section-170.315 | 2026-09-27 | |
+| `docs/ingested/healthcare/hipaa-security-rule-164308-164312-2026.txt` | 45 CFR 164.308 & 164.312 — HIPAA Security Rule (Administrative & Technical Safeguards) | https://www.law.cornell.edu/cfr/text/45/164.308 ; https://www.law.cornell.edu/cfr/text/45/164.312 | 2026-09-27 | |
+| `docs/ingested/healthcare/dea-epcs-1311-2026.txt` | 21 CFR Part 1311 — DEA Electronic Prescriptions for Controlled Substances (EPCS) requirements | https://deadiversion.usdoj.gov/faq/epcs-faq.html | 2026-09-27 | Summarized from DEA's own FAQ + 2020 clarification notice; recommend pulling ecfr.gov/current/title-21/part-1311 directly for final citation-grade text before formal submission. |
+| `docs/ingested/healthcare/fda-cds-guidance-2022.txt` | FDA Clinical Decision Support Software — Final Guidance (2022) | https://www.hhs.gov/guidance/sites/default/files/hhs-guidance-documents/FDA/Guidance-Clinical-Decision-Software.pdf | 2026-09-27 | Governs FDA device/non-device status determination for CDS alerting features. |

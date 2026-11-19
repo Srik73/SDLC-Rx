@@ -1,0 +1,39 @@
+SOURCE: DEA regulations governing Electronic Prescriptions for Controlled Substances (EPCS), 21 CFR Part 1311
+RETRIEVED FROM: https://deadiversion.usdoj.gov/faq/epcs-faq.html and https://www.forasoft.com/learn/telemedicine/glossary/terms-telemedicine/epcs (secondary summary, cross-checked against DEA FAQ and DEA clarification notice)
+RETRIEVED: 2026-09-27
+NOTE: 21 CFR Part 1311 is the operative DEA regulation. Full regulatory text should be pulled directly from ecfr.gov/current/title-21/part-1311 for final citations; this file captures the core requirements as summarized and confirmed across DEA's own FAQ page and DEA's 2020 clarification notice (Docket No. DEA-360).
+
+CORE REQUIREMENT: DEA mandates that any application used for prescribing or filling Electronic Prescriptions for Controlled Substances (EPCS) — Schedule II through V — must meet all requirements stated in 21 CFR Part 1311, Subpart C.
+
+KEY SAFEGUARDS REQUIRED BY 21 CFR PART 1311:
+
+1. Application/software certification (21 CFR 1311.300).
+   The prescribing or pharmacy application must be reviewed, tested, and determined by an independent third-party auditor to meet all technical requirements of Part 1311 — OR be certified by a DEA-approved certifying organization (21 CFR 1311.300(e)) as an alternative to third-party audit.
+
+2. Identity proofing (Subpart C).
+   Prescribers must complete rigorous identity verification before being granted EPCS access. Identity proofing must meet NIST Identity Assurance Level 2 (IAL2) or higher.
+
+3. Two-factor authentication for signing.
+   Every controlled-substance prescription must be signed using two distinct authentication factors from different categories (something you know, something you have, something you are). This authentication must occur at the point of signing, not merely at login.
+
+4. Logical access controls.
+   Only DEA-registered practitioners who have completed identity proofing may sign controlled-substance prescriptions.
+
+5. Tamper-evident audit trails.
+   Comprehensive logging of all EPCS actions — prescription creation, modification, signing, and transmission.
+
+6. Processing integrity audits.
+   DEA's 2020 clarification (Docket No. DEA-360) emphasizes that third-party audits must address "processing integrity" — i.e., protection against insider threats and outsider attacks on the prescribing/dispensing pipeline — not only the point-of-signing controls. DEA recommends consulting NIST Special Publication 800-53A when gaps arise in a particular application's controls.
+
+7. Electronic form must be preserved end-to-end.
+   Per 21 CFR 1306.08(f)(1), an EPCS transferred for filling must remain in electronic form throughout — it may not be converted to another form (e.g., facsimile) for transmission. Contents must not be altered during transfer between pharmacies (21 CFR 1306.08(f)(2)).
+
+8. Electronic record retention.
+   All records related to EPCS must be retained electronically (21 CFR 1311.305(a)); DEA has required this since electronic controlled-substance prescribing was first permitted.
+
+9. Nonregistrant access prevention.
+   A core statutory goal (Controlled Substances Act, 21 U.S.C. 801-904) is ensuring that non-DEA-registrants cannot improperly gain access to electronic prescription applications — i.e., preventing diversion of controlled substances into improper channels.
+
+REGULATORY LINEAGE: The interim final rule (IFR) establishing EPCS was published in the Federal Register on March 31, 2010 (75 FR 16236) and became effective June 1, 2010. It is codified across 21 CFR Parts 1300, 1304, 1306, and 1311. DEA issued a further clarification notice in 2020 (Docket No. DEA-360) specifically regarding third-party audit scope and NIST guideline alignment.
+
+ADOPTION PRESSURE: Medicare requires EPCS for controlled-substance prescriptions under Part D, and most U.S. states now separately mandate electronic prescribing of controlled substances — meaning EPCS compliance is effectively required, not optional, for most prescribers.

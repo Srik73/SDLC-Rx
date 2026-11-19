@@ -1,0 +1,46 @@
+SOURCE: 45 CFR 170.315 — ONC certification criteria for Health IT
+SECTION: (a)(9) Clinical decision support (CDS)
+RETRIEVED FROM: https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170/subpart-C/section-170.315
+RETRIEVED: 2026-09-27 (current eCFR text; this criterion's ONC certification adoption expires 2025-01-01 per paragraph (vi) below — successor provisions are at (b)(11) Decision support interventions, included in a separate file)
+
+(a)(9) Clinical decision support (CDS) —
+
+(i) CDS intervention interaction. Interventions provided to a user must occur when a user is interacting with technology.
+
+(ii) CDS configuration.
+(A) Enable interventions and reference resources specified in paragraphs (a)(9)(iii) and (iv) of this section to be configured by a limited set of identified users (e.g., system administrator) based on a user's role.
+(B) Enable interventions:
+  (1) Based on the following data:
+    (i) Problem list;
+    (ii) Medication list;
+    (iii) Allergy and intolerance list;
+    (iv) At least one demographic specified in paragraph (a)(5)(i) of this section;
+    (v) Laboratory tests; and
+    (vi) Vital signs.
+  (2) When a patient's medications, allergies and intolerance, and problems are incorporated from a transition of care/referral summary received and pursuant to paragraph (b)(2)(iii)(D) of this section.
+
+(iii) Evidence-based decision support interventions. Enable a limited set of identified users to select (i.e., activate) electronic CDS interventions (in addition to drug-drug and drug-allergy contraindication checking) based on each one and at least one combination of the data referenced in paragraphs (a)(9)(ii)(B)(1)(i) through (vi) of this section.
+
+(iv) Linked referential CDS.
+(A) Identify for a user diagnostic and therapeutic reference information in accordance with at least one of the standards and implementation specifications specified in § 170.204(b)(3) or § 170.204(b)(4).
+(B) Technology must be able to identify for a user diagnostic or therapeutic reference information based on each one and at least one combination of the data referenced in paragraphs (a)(9)(ii)(B)(1)(i), (ii), and (iv) of this section.
+
+(v) Source attributes. Enable a user to review the attributes as indicated for all CDS resources:
+(A) For evidence-based decision support interventions under paragraph (a)(9)(iii):
+  (1) Bibliographic citation of the intervention (clinical research/guideline);
+  (2) Developer of the intervention (translation from clinical research/guideline);
+  (3) Funding source of the intervention development technical implementation; and
+  (4) Release and, if applicable, revision date(s) of the intervention or reference source.
+(B) For linked referential CDS in paragraph (a)(9)(iv) and drug-drug, drug-allergy interaction checks in paragraph (a)(4): the developer of the intervention, and where clinically indicated, the bibliographic citation of the intervention (clinical research/guideline).
+
+(vi) Expiration of criterion. The adoption of this criterion for purposes of the ONC Health IT Certification Program expires on January 1, 2025.
+
+---
+RELATED: (a)(4) Drug-drug, drug-allergy interaction checks for CPOE — same source document.
+(4) Drug-drug, drug-allergy interaction checks for CPOE —
+(i) Interventions. Before a medication order is completed and acted upon during computerized provider order entry (CPOE), interventions must automatically indicate to a user drug-drug and drug-allergy contraindications based on a patient's medication list and medication allergy list.
+(ii) Adjustments.
+(A) Enable the severity level of interventions provided for drug-drug interaction checks to be adjusted.
+(B) Limit the ability to adjust severity levels in at least one of these two ways:
+  (1) To a specific set of identified users.
+  (2) As a system administrative function.

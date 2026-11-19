@@ -1,0 +1,75 @@
+SOURCE: 45 CFR 164.308 (Administrative safeguards) and 45 CFR 164.312 (Technical safeguards) — HIPAA Security Rule
+RETRIEVED FROM: https://www.law.cornell.edu/cfr/text/45/164.308 and https://www.law.cornell.edu/cfr/text/45/164.312
+RETRIEVED: 2026-09-27
+NOTE: The HIPAA Security Rule sits at 45 CFR Part 160 and Part 164, Subparts A and C. It requires administrative, physical, and technical safeguards for ePHI (electronic protected health information). Applies to all HIPAA covered entities and their business associates. Each implementation specification is marked Required or Addressable; "Addressable" does not mean optional — a covered entity must implement it, an equivalent alternative, or document why neither is reasonable and appropriate.
+
+===== § 164.308 Administrative safeguards =====
+
+(a) A covered entity or business associate must, in accordance with § 164.306:
+
+(1)(i) Standard: Security management process. Implement policies and procedures to prevent, detect, contain, and correct security violations.
+(ii) Implementation specifications:
+  (A) Risk analysis (Required). Conduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of ePHI held by the covered entity or business associate.
+  (B) Risk management (Required). Implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level.
+  (C) Sanction policy (Required). Apply appropriate sanctions against workforce members who fail to comply.
+  (D) Information system activity review (Required). Implement procedures to regularly review records of information system activity (audit logs, access reports, security incident tracking reports).
+
+(2) Standard: Assigned security responsibility. Identify the security official responsible for developing and implementing the required policies and procedures.
+
+(3)(i) Standard: Workforce security. Implement policies and procedures ensuring appropriate ePHI access for workforce members and preventing unauthorized access.
+(ii) Implementation specifications:
+  (A) Authorization and/or supervision (Addressable).
+  (B) Workforce clearance procedure (Addressable).
+  (C) Termination procedures (Addressable).
+
+(4)(i) Standard: Information access management. Implement policies and procedures for authorizing ePHI access consistent with the Privacy Rule (subpart E).
+(ii) Implementation specifications:
+  (A) Isolating health care clearinghouse functions (Required, if applicable).
+  (B) Access authorization (Addressable).
+  (C) Access establishment and modification (Addressable).
+
+(5)(i) Standard: Security awareness and training. Implement a security awareness/training program for all workforce members (including management).
+(ii) Implementation specifications: security reminders (Addressable); protection from malicious software (Addressable); log-in monitoring (Addressable); password management (Addressable).
+
+(6)(i) Standard: Security incident procedures. Implement policies and procedures to address security incidents.
+(ii) Implementation specification: Response and reporting (Required) — identify and respond to suspected/known incidents; mitigate harmful effects to the extent practicable; document incidents and outcomes.
+
+(7)(i) Standard: Contingency plan. Establish policies/procedures for responding to an emergency (fire, vandalism, system failure, natural disaster) that damages systems containing ePHI.
+(ii) Implementation specifications:
+  (A) Data backup plan (Required).
+  (B) Disaster recovery plan (Required).
+  (C) Emergency mode operation plan (Required).
+  (D) Testing and revision procedures (Addressable).
+  (E) Applications and data criticality analysis (Addressable).
+
+(8) Standard: Evaluation. Perform periodic technical and nontechnical evaluation of security policies/procedures against the Security Rule's requirements.
+
+(b) Business associate contracts and other arrangements.
+(1) A covered entity may permit a business associate to create, receive, maintain, or transmit ePHI on its behalf only with satisfactory assurances (per § 164.314(a)) that the business associate will appropriately safeguard the information.
+(2) A business associate may similarly permit a subcontractor only with equivalent satisfactory assurances.
+(3) Implementation specification: Written contract or other arrangement (Required).
+
+===== § 164.312 Technical safeguards =====
+
+A covered entity or business associate must, in accordance with § 164.306:
+
+(a)(1) Standard: Access control. Implement technical policies and procedures for electronic information systems maintaining ePHI, allowing access only to persons/software programs granted access rights per § 164.308(a)(4).
+(2) Implementation specifications:
+  (i) Unique user identification (Required). Assign a unique name/number for identifying and tracking user identity.
+  (ii) Emergency access procedure (Required). Establish procedures for obtaining necessary ePHI during an emergency.
+  (iii) Automatic logoff (Addressable). Terminate an electronic session after a predetermined period of inactivity.
+  (iv) Encryption and decryption (Addressable).
+
+(b) Standard: Audit controls (Required). Implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use ePHI.
+
+(c)(1) Standard: Integrity. Implement policies and procedures to protect ePHI from improper alteration or destruction.
+(2) Implementation specification: Authentication of ePHI (Addressable). Implement electronic mechanisms to corroborate that ePHI has not been altered or destroyed in an unauthorized manner.
+
+(d) Standard: Person or entity authentication (Required). Implement procedures to verify that a person or entity seeking access to ePHI is the one claimed.
+
+(e)(1) Standard: Transmission security. Implement technical security measures to guard against unauthorized access to ePHI being transmitted over an electronic communications network.
+(2) Implementation specifications:
+  (i) Integrity controls (Addressable). Ensure electronically transmitted ePHI is not improperly modified without detection until disposed of.
+  (ii) Encryption (Addressable). Implement a mechanism to encrypt ePHI whenever deemed appropriate.
+
+[68 FR 8376, Feb. 20, 2003, as amended at 78 FR 5694, Jan. 25, 2013]

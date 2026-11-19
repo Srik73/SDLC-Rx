@@ -1,0 +1,40 @@
+SOURCE: 45 CFR 170.315 — ONC certification criteria for Health IT
+SECTION: (b)(11) Decision support interventions
+RETRIEVED FROM: https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-D/part-170/subpart-C/section-170.315
+RETRIEVED: 2026-09-27
+NOTE: This is the current, active successor criterion to (a)(9) Clinical decision support, which expired for certification purposes on 2025-01-01. Use this criterion, not (a)(9), for any current CDS alerting requirement citation.
+
+(11) Decision support interventions —
+
+(i) Decision support intervention interaction. Interventions provided to a user must occur when a user is interacting with technology.
+
+(ii) Decision support configuration.
+(A) Enable interventions specified in paragraph (b)(11)(iii) of this section to be configured by a limited set of identified users based on a user's role.
+(B) Enable interventions when a patient's medications, allergies and intolerance, and problems are incorporated from a transition of care or referral summary received and pursuant to paragraph (b)(2)(iii)(D) of this section.
+(C) Enable a user to provide electronic feedback data for evidence-based decision support interventions selected via the capability provided in paragraph (b)(11)(iii)(A) of this section and make available such feedback data to a limited set of identified users for export, in a computable format, including at a minimum the intervention, action taken, user feedback provided (if applicable), user, date, and location.
+
+(iii) Decision support intervention selection. Enable a limited set of identified users to select (i.e., activate) electronic decision support interventions (in addition to drug-drug and drug-allergy contraindication checking) that are:
+(A) Evidence-based decision support interventions using data on: problems; medications; allergies and intolerances; at least one demographic specified in paragraph (a)(5)(i); laboratory; vital signs; unique device identifier(s) for a patient's implantable device(s); and procedures.
+(B) Predictive Decision Support Interventions and use any data expressed in the standards in § 170.213.
+
+(iv) Source attributes — required for both evidence-based and Predictive Decision Support Interventions, including:
+(A) For evidence-based interventions: bibliographic citation; developer; funding source; release/revision dates; and use of race, ethnicity, language, sexual orientation, gender identity, sex, date of birth, social determinants of health data, and health status assessment data as input.
+(B) For Predictive Decision Support Interventions — significantly more extensive disclosure requirements, including:
+  (1) Details and output: developer name/contact, funding source, description of value produced, and whether output is a prediction, classification, recommendation, evaluation, or analysis.
+  (2) Purpose: intended use, intended patient population(s), intended user(s), intended decision-making role (informs, augments, replaces clinical management).
+  (3) Cautioned out-of-scope use: tasks/situations/populations where use is cautioned against; known risks, inappropriate settings, inappropriate uses, or known limitations.
+  (4) Intervention development details and input features: exclusion/inclusion criteria for training data; use of demographic variables as input features; description of demographic representativeness of training data; description of relevance of training data to intended deployed setting.
+  (5) Process used to ensure fairness: approach taken to ensure fair output; approaches to manage, reduce, or eliminate bias.
+  (6) External validation process: data source/clinical setting where validity and fairness were assessed (other than training data); party that conducted external testing; demographic representativeness of external data; description of external validation process.
+  (7) Quantitative measures of performance: validity and fairness in same-source test data; validity and fairness in external/different-source data; references to evaluation of intervention's effect on outcomes (morbidity, mortality, length of stay, etc.).
+  (8) Ongoing maintenance: process/frequency of validity monitoring over time; validity in local data; process/frequency of fairness monitoring over time; fairness in local data.
+  (9) Update schedule: process/frequency of intervention updates; process/frequency of performance correction when validity/fairness risks are identified.
+
+(v) Source attribute access and modification.
+(A) Access — a limited set of identified users must be able to access complete, up-to-date, plain-language descriptions of source attribute information. For Predictive Decision Support Interventions, the technology must indicate when certain attribute information is not available for review.
+(B) Modify — a limited set of identified users must be able to record, change, and access source attributes, and (for Predictive DSIs) additional source attributes not otherwise specified.
+
+(vi) Intervention risk management. Risk management practices must be applied to each Predictive Decision Support Intervention supplied by the developer:
+(A) Risk analysis — analysis of potential risks and adverse impacts related to: validity, reliability, robustness, fairness, intelligibility, safety, security, and privacy.
+(B) Risk mitigation — practices to mitigate risks identified under (A).
+(C) Governance — policies and implemented controls for governance, including how data are acquired, managed, and used.
