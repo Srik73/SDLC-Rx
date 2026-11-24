@@ -56,3 +56,6 @@ b37ad5b0d2e18e40e2d8d9a427c09892c07d1497016e3cedfc13102396b12bf5  docs/ingested/
 7707cfa4494d558dfb7c9a6f3d34381d0d18819dc08601a1d374468d5aa87fc4  docs/ingested/healthcare/onc-170315-decision-support-interventions-2026.txt
 21ecce09757fba4b8a5799fcd6ff5dfa6c0df36a3a9e14605490a461a3cc7b07  docs/ingested/healthcare/onc-170315-patient-engagement-2026.txt
 115a61d4f854f386b4a2e6a6fd2944347d607d986131c2547e88faf1349e427a  docs/ingested/healthcare/onc-170315-privacy-security-2026.txt
+9002143ee8b86b8552d77cbe222b16857f1438f424c93ccf982afbd8a5653e60  docs/ingested/healthcare-in/india-cdsco-medical-device-software-guidance-2026.txt
+eb00a7a76fb648f08b748216a51eaa43803d4735c1f2fb7ae35b957e570debc1  docs/ingested/healthcare-in/india-dpdp-rules-2025-english.txt
+2fb99bedf331490a8acd638ac94536b30c9cdef308bf0582d65cd5688dcbf436  docs/ingested/healthcare-in/india-telemedicine-practice-guidelines-2020.txt

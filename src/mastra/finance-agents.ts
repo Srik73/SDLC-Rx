@@ -29,7 +29,7 @@ export const sdlcSelectionAgent = new Agent({
   model: chatModel,
   defaultOptions: {
     ...options,
-    modelSettings: { maxOutputTokens: 3000 },
+    modelSettings: { maxOutputTokens: 2500 }, //3000
   },
   workspace: architectWorkspace,
   inputProcessors: [ragContextProcessor],
