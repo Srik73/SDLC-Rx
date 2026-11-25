@@ -4,7 +4,11 @@ import { architectAgent } from './architect-agent';
 import { requirementsAgent, sdlcSelectionAgent } from './health-agents';
 import { assertCorpusSearchable } from './rag';
 import { requirementsThenSdlc } from './workflow';
-import { architectWorkspace } from './workspace';
+import {
+  architectWorkspace,
+  indiaWorkspace,
+  usWorkspace,
+} from './workspace';
 
 export const mastra = new Mastra({
   agents: { architectAgent, requirementsAgent, sdlcSelectionAgent },
@@ -16,5 +20,6 @@ export const mastra = new Mastra({
   workspace: architectWorkspace,
 });
 
-await architectWorkspace.init();
+await indiaWorkspace.init();
+await usWorkspace.init();
 await assertCorpusSearchable();

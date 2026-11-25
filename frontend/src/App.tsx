@@ -8,11 +8,13 @@ const API_BASE_URL = (import.meta.env.VITE_MASTRA_API_BASE_URL || '/api').replac
 const WORKFLOW_URL = `${API_BASE_URL}/workflows/requirements-then-sdlc/start-async`;
 
 type RunState = 'idle' | 'running' | 'success' | 'error';
+type Corpus = 'india' | 'us';
 
 type WorkflowOutput = {
   requirements: string;
   sdlc: string;
   document?: string;
+  corpus?: Corpus;
   markdownPath?: string;
   htmlPath?: string;
 };
@@ -33,6 +35,7 @@ function App() {
   const [output, setOutput] = useState<WorkflowOutput | null>(null);
   const [error, setError] = useState('');
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  const [corpus, setCorpus] = useState<Corpus>('india');
 
   useEffect(() => {
     if (runState !== 'running') {
@@ -66,7 +69,7 @@ function App() {
       const response = await fetch(WORKFLOW_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ inputData: { prompt: trimmedPrompt } }),
+        body: JSON.stringify( {inputData: {prompt: trimmedPrompt, corpus,},}),
       });
       const payload = await response.json().catch(() => null);
       if (!response.ok) {
@@ -98,8 +101,23 @@ function App() {
 
   function downloadMarkdown() {
     if (!output) return;
-    const documentText = output.document || `${output.requirements.trim()}\n\n---\n\n${output.sdlc.trim()}`;
-    const file = new Blob([`${documentText.trim()}\n`], { type: 'text/markdown;charset=utf-8' });
+    const corpusLabel = corpus === 'india' ? 'India' : 'United States';
+
+    const documentText =
+      output.document ||
+      `${output.requirements.trim()}\n\n---\n\n${output.sdlc.trim()}`;
+
+    const documentWithMetadata = [
+      '# SDLC Rx Planning Output',
+      '',
+      `> Reference corpus: ${corpusLabel}`,
+      '',
+      documentText.trim(),
+    ].join('\n\n');
+    const file = new Blob(
+    [`${documentWithMetadata.trim()}\n`],
+    { type: 'text/markdown;charset=utf-8' },
+  );
     const url = URL.createObjectURL(file);
     const link = document.createElement('a');
     link.href = url;
@@ -152,6 +170,24 @@ function App() {
               <label htmlFor="prompt">Describe the healthcare product or module</label>
               <span className="character-count">{prompt.length.toLocaleString()} characters</span>
             </div>
+            <div className="corpus-selector">
+            <div>
+              <label htmlFor="corpus">Reference corpus</label>
+              <small>
+                Select the jurisdiction-specific healthcare references used by the agents.
+              </small>
+            </div>
+
+            <select
+              id="corpus"
+              value={corpus}
+              onChange={(event) => setCorpus(event.target.value as Corpus)}
+              disabled={runState === 'running'}
+            >
+              <option value="india">India</option>
+              <option value="us">United States</option>
+            </select>
+          </div>
             <textarea
               id="prompt"
               value={prompt}
@@ -161,7 +197,8 @@ function App() {
               disabled={runState === 'running'}
             />
             <div className="input-card-footer">
-              <span className="input-hint"><span className="hint-dot" /> Natural language input · India/US corpus is managed separately</span>
+              <span className="input-hint">
+              <span className="hint-dot" />Natural language input · India/US corpus is managed separately</span>
               <button className="primary-button" type="submit" disabled={!prompt.trim() || runState === 'running'}>
                 {runState === 'running' ? <><span className="button-spinner" /> Running workflow</> : <>Generate plan <span aria-hidden="true">→</span></>}
               </button>

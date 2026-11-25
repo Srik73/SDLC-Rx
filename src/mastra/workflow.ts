@@ -7,41 +7,71 @@ import { textFromGenerateResult } from './telegram-utils';
 import { workspaceRoot } from './workspace';
 
 const previewDir = join(workspaceRoot, 'artifacts/evaluation');
+const corpusSchema = z.enum(['india', 'us']);
 
 const listRequirements = createStep({
   id: 'list-requirements',
   description: 'Requirements Agent lists software requirements.',
-  inputSchema: z.object({ prompt: z.string() }),
-  outputSchema: z.object({ requirements: z.string() }),
+  inputSchema: z.object({
+    prompt: z.string(),
+    corpus: corpusSchema,
+  }),
+  outputSchema: z.object({
+    requirements: z.string(),
+    corpus: corpusSchema,
+  }),
   execute: async ({ inputData }) => {
-    const result = await requirementsAgent.generate(inputData.prompt);
+    const result = await requirementsAgent.generate(
+      `[SDLC_RX_CORPUS=${inputData.corpus}]\n${inputData.prompt}`,
+    );
+
     const requirements = textFromGenerateResult(result);
-    if (!requirements) throw new Error('Requirements Agent returned no text');
-    return { requirements };
+
+    if (!requirements) {
+      throw new Error('Requirements Agent returned no text');
+    }
+
+    return {
+      requirements,
+      corpus: inputData.corpus,
+    };
   },
 });
 
 const selectSdlc = createStep({
   id: 'select-sdlc',
   description: 'SDLC Selection Agent chooses and justifies a lifecycle for the SRS.',
-  inputSchema: z.object({ requirements: z.string() }),
+  inputSchema: z.object({
+    requirements: z.string(),
+    corpus: corpusSchema,
+  }),
   outputSchema: z.object({
     requirements: z.string(),
     sdlc: z.string(),
     document: z.string(),
+    corpus: corpusSchema,
   }),
   execute: async ({ inputData }) => {
-    // Pause to avoid Groq free-tier rate limit collision with the Requirements Agent call
+    // Existing delay retained to avoid model rate-limit collisions.
     await new Promise((resolve) => setTimeout(resolve, 65000));
+
     const result = await sdlcSelectionAgent.generate(
-      `Select a suitable SDLC for this specification.\n\n${inputData.requirements}`,
+      `[SDLC_RX_CORPUS=${inputData.corpus}]\n` +
+      `Select a suitable SDLC for this specification.\n\n` +
+      inputData.requirements,
     );
+
     const sdlc = textFromGenerateResult(result);
-    if (!sdlc) throw new Error('SDLC Selection Agent returned no text');
+
+    if (!sdlc) {
+      throw new Error('SDLC Selection Agent returned no text');
+    }
+
     return {
       requirements: inputData.requirements,
       sdlc,
       document: `${inputData.requirements.trim()}\n\n---\n\n${sdlc.trim()}`,
+      corpus: inputData.corpus,
     };
   },
 });
@@ -53,21 +83,39 @@ const writePreview = createStep({
     requirements: z.string(),
     sdlc: z.string(),
     document: z.string(),
+    corpus: corpusSchema,
   }),
   outputSchema: z.object({
     requirements: z.string(),
     sdlc: z.string(),
     document: z.string(),
+    corpus: corpusSchema,
     markdownPath: z.string(),
     htmlPath: z.string(),
   }),
   execute: async ({ inputData }) => {
     await mkdir(previewDir, { recursive: true });
+
     const markdownPath = join(previewDir, 'latest.md');
     const htmlPath = join(previewDir, 'latest.html');
-    await writeFile(markdownPath, `${inputData.document.trim()}\n`, 'utf8');
-    await writeFile(htmlPath, htmlPreview(inputData.document), 'utf8');
-    return { ...inputData, markdownPath, htmlPath };
+
+    await writeFile(
+      markdownPath,
+      `${inputData.document.trim()}\n`,
+      'utf8',
+    );
+
+    await writeFile(
+      htmlPath,
+      htmlPreview(inputData.document),
+      'utf8',
+    );
+
+    return {
+      ...inputData,
+      markdownPath,
+      htmlPath,
+    };
   },
 });
 
@@ -91,12 +139,17 @@ const htmlPreview = (markdown: string) => `<!DOCTYPE html>
 
 export const requirementsThenSdlc = createWorkflow({
   id: 'requirements-then-sdlc',
-  description: 'Two-agent course flow: list requirements, then select a justified SDLC. Writes artifacts/evaluation/latest.md and latest.html.',
-  inputSchema: z.object({ prompt: z.string() }),
+  description:
+    'Two-agent course flow: list requirements, then select a justified SDLC.',
+  inputSchema: z.object({
+    prompt: z.string(),
+    corpus: corpusSchema.default('india'),
+  }),
   outputSchema: z.object({
     requirements: z.string(),
     sdlc: z.string(),
     document: z.string(),
+    corpus: corpusSchema,
     markdownPath: z.string(),
     htmlPath: z.string(),
   }),
@@ -106,12 +159,27 @@ export const requirementsThenSdlc = createWorkflow({
   .then(writePreview)
   .commit();
 
-export const runRequirementsThenSdlc = async (prompt: string) => {
+export const runRequirementsThenSdlc = async (
+  prompt: string,
+  corpus: 'india' | 'us' = 'india',
+) => {
   const run = await requirementsThenSdlc.createRun();
-  const result = await run.start({ inputData: { prompt } });
+
+  const result = await run.start({
+    inputData: {
+      prompt,
+      corpus,
+    },
+  });
+
   if (result.status !== 'success') {
-    const message = result.status === 'failed' ? result.error.message : result.status;
+    const message =
+      result.status === 'failed'
+        ? result.error.message
+        : result.status;
+
     throw new Error(`Workflow failed: ${message}`);
   }
+
   return result.result;
 };
