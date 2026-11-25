@@ -3,6 +3,10 @@ import { join } from 'node:path';
 import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
 import { requirementsAgent, sdlcSelectionAgent } from './health-agents';
+import {
+  requirementsPromptForCorpus,
+  sdlcPromptForCorpus,
+} from './prompts';
 import { textFromGenerateResult } from './telegram-utils';
 import { workspaceRoot } from './workspace';
 
@@ -23,6 +27,9 @@ const listRequirements = createStep({
   execute: async ({ inputData }) => {
     const result = await requirementsAgent.generate(
       `[SDLC_RX_CORPUS=${inputData.corpus}]\n${inputData.prompt}`,
+      {
+        instructions: requirementsPromptForCorpus(inputData.corpus),
+      },
     );
 
     const requirements = textFromGenerateResult(result);
@@ -57,8 +64,11 @@ const selectSdlc = createStep({
 
     const result = await sdlcSelectionAgent.generate(
       `[SDLC_RX_CORPUS=${inputData.corpus}]\n` +
-      `Select a suitable SDLC for this specification.\n\n` +
-      inputData.requirements,
+        `Select a suitable SDLC for this specification.\n\n` +
+        inputData.requirements,
+      {
+        instructions: sdlcPromptForCorpus(inputData.corpus),
+      },
     );
 
     const sdlc = textFromGenerateResult(result);

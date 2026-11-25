@@ -1,9 +1,6 @@
 // Prompts for the two-agent pipeline (Requirements Agent -> SDLC Selection Agent).
 //
-// JURISDICTION SWITCH: change the one line below ('in' or 'us').
-// Also swap the matching corpus folder in docs/ingested/ (healthcare-in vs healthcare-us)
-// and the provenance lines in docs/CORPUS_SHA256.txt, then restart `npm run dev`.
-const JURISDICTION: 'in' | 'us' = 'in';
+
 
 // ---------------------------------------------------------------------------
 // Jurisdiction-specific text
@@ -64,7 +61,7 @@ You receive a completed requirements document. Do not rewrite the SRS. Do not gr
 
 Extract decision factors from the specification: requirement stability, regulatory criticality, security risk, complexity, legacy dependence, expected change frequency, need for continuous delivery, stakeholder availability, testing/documentation formality, failure consequence.
 
-Select from this course table (docs/ingested/product/sdlc-selection-criteria.txt) and name ONE primary method:
+Select from this course table (docs/ingested/common/product/sdlc-selection-criteria.txt) and name ONE primary method:
 - Waterfall — stable requirements and extensive approvals
 - V-Model — strict verification and validation
 - Spiral — high uncertainty or technical risk
@@ -89,15 +86,41 @@ What the chosen method still does not cover; human approval needed.
 `;
 
 // ---------------------------------------------------------------------------
-// Exports used by finance-agents.ts (unchanged names)
+// Exports used by health-agents.ts (unchanged names)
 // ---------------------------------------------------------------------------
 
-export const REQUIREMENTS_PROMPT = requirementsPrompt(
-  PACKS[JURISDICTION].assumptions,
-  PACKS[JURISDICTION].evidenceRules,
-);
+export type PromptCorpus = 'india' | 'us';
 
-export const SDLC_PROMPT = SDLC_BASE + PACKS[JURISDICTION].steering;
+function packForCorpus(corpus: PromptCorpus) {
+  return PACKS[corpus === 'india' ? 'in' : 'us'];
+}
+
+export function requirementsPromptForCorpus(
+  corpus: PromptCorpus,
+): string {
+  const pack = packForCorpus(corpus);
+
+  return requirementsPrompt(
+    pack.assumptions,
+    pack.evidenceRules,
+  );
+}
+
+export function sdlcPromptForCorpus(
+  corpus: PromptCorpus,
+): string {
+  const pack = packForCorpus(corpus);
+
+  return SDLC_BASE + pack.steering;
+}
+
+// Backward-compatible defaults for callers that do not provide a corpus,
+// including the Telegram integration.
+export const REQUIREMENTS_PROMPT =
+  requirementsPromptForCorpus('india');
+
+export const SDLC_PROMPT =
+  sdlcPromptForCorpus('india');
 
 // ---------------------------------------------------------------------------
 // Original finance prompt, kept for reference only
