@@ -1,7 +1,7 @@
 import { Mastra } from '@mastra/core/mastra';
 import { LibSQLStore } from '@mastra/libsql';
 import { architectAgent } from './architect-agent';
-import { requirementsAgent, sdlcSelectionAgent } from './finance-agents';
+import { requirementsAgent, sdlcSelectionAgent } from './health-agents';
 import { assertCorpusSearchable } from './rag';
 import { requirementsThenSdlc } from './workflow';
 import { architectWorkspace } from './workspace';

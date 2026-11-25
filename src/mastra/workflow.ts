@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
-import { requirementsAgent, sdlcSelectionAgent } from './finance-agents';
+import { requirementsAgent, sdlcSelectionAgent } from './health-agents';
 import { textFromGenerateResult } from './telegram-utils';
 import { workspaceRoot } from './workspace';
 

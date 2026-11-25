@@ -143,7 +143,7 @@ function App() {
         <section className="workspace">
           <div className="hero-copy">
             <div className="section-kicker"><span className="kicker-line" /> Requirements to recommendation</div>
-            <h1>Turn a clinical idea into a <em>buildable plan.</em></h1>
+            <h1>Make your clinical idea an SRS based <em>execution plan.</em></h1>
             <p>Describe the healthcare product or module in plain language. SDLC Rx will first shape the requirements, then recommend a suitable software lifecycle.</p>
           </div>
 
